@@ -1,5 +1,2 @@
 name = "cybersecurity-portal"
-compatibility_date = "2026-09-23"
-
-[assets]
-directory = "."
+pages_build_output_dir = "."
