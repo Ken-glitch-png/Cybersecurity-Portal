@@ -1,2 +1,4 @@
-name = "cybersecurity-portal"
-pages_build_output_dir = "."
+# ...
+[observability]
+enabled = false
+# ...
