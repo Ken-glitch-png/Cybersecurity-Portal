@@ -50,21 +50,18 @@
         .code-font {
             font-family: 'JetBrains Mono', monospace;
         }
-        /* Grid background pattern */
         .bg-grid {
             background-size: 30px 30px;
             background-image: 
                 linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
-        /* Custom Glowing Elements */
         .glow-cyan {
             box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
         }
         .text-glow {
             text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
         }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -78,7 +75,6 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #00f0ff;
         }
-        /* Scanline FX */
         .scanline {
             background: linear-gradient(
                 to bottom,
@@ -97,7 +93,6 @@
     <header class="sticky top-0 z-40 bg-cyber-bg/90 backdrop-blur-md border-b border-cyber-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('news')">
                     <div class="p-2 bg-cyan-950/80 rounded-lg border border-cyber-accent/40 text-cyber-accent glow-cyan">
                         <i class="fa-solid me-0 fa-shield-halved text-xl"></i>
@@ -108,7 +103,6 @@
                     </div>
                 </div>
 
-                <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex space-x-1">
                     <button onclick="switchTab('news')" id="tab-btn-news" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center space-x-2 border border-transparent text-gray-300 hover:text-white hover:bg-cyber-border/50">
                         <i class="fa-solid fa-newspaper text-cyber-accent"></i>
@@ -128,7 +122,6 @@
                     </button>
                 </nav>
 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="p-2 rounded-md text-gray-400 hover:text-white hover:bg-cyber-border focus:outline-none">
                         <i class="fa-solid fa-bars text-xl"></i>
@@ -137,7 +130,6 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-cyber-card border-b border-cyber-border px-4 pt-2 pb-4 space-y-1">
             <button onclick="switchTab('news')" class="mobile-nav-btn w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-cyber-border hover:text-white flex items-center space-x-2">
                 <i class="fa-solid fa-newspaper text-cyber-accent w-6"></i>
@@ -158,20 +150,17 @@
         </div>
     </header>
 
-    <!-- Main Container -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
 
         <section id="section-news" class="tab-content">
-            <!-- News Header & Controls -->
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                 <div>
                     <h1 class="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-rss text-cyber-accent"></i> Hacker News & Threat Radar
+                        <i class="fa-solid fa-rss text-cyber-accent"></i> Live Hacker News & Threat Radar
                     </h1>
-                    <p class="text-gray-400 text-sm mt-1">Real-time cybersecurity news, vulnerability disclosures, and breach alerts.</p>
+                    <p class="text-gray-400 text-sm mt-1">Live cybersecurity news, vulnerability disclosures, and real-time threat intelligence.</p>
                 </div>
                 
-                <!-- Search and Filters -->
                 <div class="flex flex-col sm:flex-row gap-3">
                     <div class="relative min-w-[240px]">
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
@@ -184,14 +173,13 @@
                         <option value="Ransomware">Ransomware</option>
                         <option value="Data Breach">Data Breaches</option>
                         <option value="Malware">Malware & Botnets</option>
-                        <option value="Policy">Policy & Advisory</option>
+                        <option value="Threat Intel">Threat Intel</option>
                     </select>
                 </div>
             </div>
 
-            <!-- Articles Grid -->
             <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Articles injected dynamically via JS -->
+                <!-- Live articles rendered dynamically -->
             </div>
         </section>
 
@@ -205,7 +193,6 @@
                     <p class="text-gray-400 text-sm mt-2 max-w-xl mx-auto">Analyze an email address or domain against simulated database breaches, credential leaks, and domain reputation vectors.</p>
                 </div>
 
-                <!-- Scanner Card Form -->
                 <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 sm:p-8 shadow-xl mb-8 relative overflow-hidden">
                     <form id="scanner-form" class="space-y-4">
                         <label class="block text-sm font-medium text-gray-300">Target Email or Domain</label>
@@ -225,7 +212,6 @@
                         </p>
                     </form>
 
-                    <!-- Scanning Loader State -->
                     <div id="scanner-loading" class="hidden my-8 py-8 text-center border-t border-cyber-border">
                         <div class="inline-block relative w-16 h-16 mb-4">
                             <div class="absolute inset-0 border-4 border-cyber-accent/20 rounded-full"></div>
@@ -241,9 +227,7 @@
                     </div>
                 </div>
 
-                <!-- Diagnostic Report Result Container -->
                 <div id="scanner-report" class="hidden space-y-6">
-                    <!-- Report Header -->
                     <div class="bg-cyber-card border rounded-2xl p-6 relative overflow-hidden" id="report-header-box">
                         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                             <div>
@@ -260,28 +244,21 @@
                         </div>
                     </div>
 
-                    <!-- Findings & Recommended Steps Split -->
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Detected Exposure -->
                         <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6">
                             <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
                                 <i class="fa-solid fa-triangle-exclamation text-cyber-yellow"></i>
                                 Discovered Exposure Points
                             </h3>
-                            <ul class="space-y-3" id="report-findings-list">
-                                <!-- Injected dynamically -->
-                            </ul>
+                            <ul class="space-y-3" id="report-findings-list"></ul>
                         </div>
 
-                        <!-- Recommendations -->
                         <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6">
                             <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
                                 <i class="fa-solid fa-list-check text-cyber-green"></i>
                                 Recommended Next Steps
                             </h3>
-                            <div class="space-y-3" id="report-recommendations-list">
-                                <!-- Injected dynamically -->
-                            </div>
+                            <div class="space-y-3" id="report-recommendations-list"></div>
                         </div>
                     </div>
                 </div>
@@ -299,7 +276,6 @@
                 </div>
 
                 <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 sm:p-8 shadow-xl">
-                    <!-- Password Output Box -->
                     <div class="mb-6">
                         <label class="block text-xs font-mono uppercase text-gray-400 mb-2">Generated Password Output</label>
                         <div class="relative flex items-center">
@@ -312,7 +288,6 @@
                         </div>
                     </div>
 
-                    <!-- Strength Indicator Bar -->
                     <div class="mb-8 p-4 bg-cyber-bg/60 border border-cyber-border rounded-xl">
                         <div class="flex justify-between items-center mb-2">
                             <span class="text-xs font-mono text-gray-400">ENTROPY STRENGTH</span>
@@ -327,11 +302,8 @@
                         </div>
                     </div>
 
-                    <!-- Controls -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Left Column: Length and Mode -->
                         <div class="space-y-6">
-                            <!-- Password Length Slider -->
                             <div>
                                 <div class="flex justify-between items-center mb-2">
                                     <label class="text-sm font-medium text-gray-200">Character Length</label>
@@ -341,7 +313,6 @@
                                     class="w-full h-2 bg-cyber-bg rounded-lg appearance-none cursor-pointer accent-cyber-accent">
                             </div>
 
-                            <!-- Mode Toggle -->
                             <div>
                                 <label class="text-sm font-medium text-gray-200 block mb-2">Generation Style</label>
                                 <div class="grid grid-cols-2 gap-2 p-1 bg-cyber-bg rounded-xl border border-cyber-border">
@@ -355,7 +326,6 @@
                             </div>
                         </div>
 
-                        <!-- Right Column: Character Sets Switch -->
                         <div class="space-y-4">
                             <label class="text-sm font-medium text-gray-200 block">Include Character Sets</label>
                             
@@ -389,7 +359,6 @@
                         </div>
                     </div>
 
-                    <!-- Regenerate Button -->
                     <div class="mt-8">
                         <button onclick="generatePassword()" class="w-full py-4 bg-cyber-accent text-black font-bold rounded-xl hover:bg-cyan-300 transition shadow-glow flex items-center justify-center space-x-2 text-base">
                             <i class="fa-solid fa-arrows-rotate"></i>
@@ -402,7 +371,6 @@
 
         <section id="section-about" class="tab-content hidden">
             <div class="max-w-4xl mx-auto space-y-8">
-                <!-- Hero About Banner -->
                 <div class="bg-cyber-card border border-cyber-border rounded-2xl p-8 text-center relative overflow-hidden">
                     <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-cyber-accent/5 rounded-full blur-2xl"></div>
                     <span class="text-xs font-mono uppercase tracking-widest text-cyber-accent bg-cyber-accent/10 px-3 py-1 rounded-full border border-cyber-accent/30">
@@ -414,7 +382,6 @@
                     </p>
                 </div>
 
-                <!-- Pillar Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6">
                         <div class="w-12 h-12 bg-cyber-accent/10 border border-cyber-accent/30 rounded-xl flex items-center justify-center text-cyber-accent mb-4">
@@ -447,7 +414,6 @@
                     </div>
                 </div>
 
-                <!-- Technical FAQ / Disclaimers -->
                 <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 space-y-4">
                     <h3 class="text-xl font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-triangle-exclamation text-cyber-yellow"></i>
@@ -457,6 +423,7 @@
                         The tools provided on CyberGuard Hub—including the Email & Domain Scanner and Password Generator—are intended exclusively for personal risk evaluation, security research, and educational purposes. The email diagnostic utilizes heuristic patterns and simulated database lookups to illustrate potential breach implications.
                     </p>
                     <div class="pt-2 border-t border-cyber-border text-xs text-gray-500 font-mono">
+                        Deployment Target: Cloudflare Pages / Workers compatible static web portal.
                     </div>
                 </div>
             </div>
@@ -464,14 +431,13 @@
 
     </main>
 
+    <!-- Modal for viewing detailed news -->
     <div id="news-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-cyber-card border border-cyber-border rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
             <button onclick="closeNewsModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <div id="modal-content">
-                <!-- Modal details injected by JS -->
-            </div>
+            <div id="modal-content"></div>
         </div>
     </div>
 
@@ -481,104 +447,92 @@
         <span id="toast-message" class="text-sm font-medium">Notification</span>
     </div>
 
+    <!-- Script Block with Live News RSS Feed Fetching -->
     <script>
-        /* Mock News Data */
-        const newsArticles = [
-            {
-                id: 1,
-                title: "Critical Zero-Day Vulnerability Discovered in Core Web Infrastructure",
-                category: "Vulnerability",
-                date: "2026-09-22",
-                author: "CyberGuard Intel Team",
-                summary: "Security researchers have identified an unpatched remote code execution vulnerability impacting major cloud web servers.",
-                content: `<p class="mb-4">A critical zero-day vulnerability (tracked as CVE-2026-8891) has been identified in widely deployed high-performance HTTP web servers. The flaw allows remote attackers to execute arbitrary memory injection payloads without prior authentication.</p>
-                <p class="mb-4">Infrastructure teams are strongly advised to implement strict Web Application Firewall (WAF) rate limits and update edge proxy definitions immediately.</p>
-                <h4 class="font-bold text-white mb-2">Mitigation Recommendations:</h4>
-                <ul class="list-disc pl-5 space-y-1 text-gray-300">
-                    <li>Isolate exposed administrative interfaces behind VPN or Zero Trust tunnels.</li>
-                    <li>Audit incoming headers for anomalous buffer lengths.</li>
-                    <li>Apply vendor patch release candidate v4.12.3 as soon as distributed.</li>
-                </ul>`
-            },
-            {
-                id: 2,
-                title: "Global Ransomware Syndicate Targets Enterprise Supply Chains",
-                category: "Ransomware",
-                date: "2026-09-20",
-                author: "Threat Radar",
-                summary: "A coordinated ransomware campaign is leveraging compromised vendor credentials to deploy dual-stage encryption payloads.",
-                content: `<p class="mb-4">Cybersecurity agencies have issued a joint advisory regarding a rising threat actor group targeting mid-market logistics and SaaS providers.</p>
-                <p class="mb-4">The threat actors gain initial access through spear-phishing emails targeting third-party contractor credentials, followed by rapid lateral movement using legitimate administrative scripts.</p>
-                <h4 class="font-bold text-white mb-2">Key Indicators of Compromise (IoCs):</h4>
-                <ul class="list-disc pl-5 space-y-1 text-gray-300">
-                    <li>Unusual PowerShell executions via scheduled tasks.</li>
-                    <li>Exfiltration spikes to encrypted cloud storage endpoints.</li>
-                    <li>Enforce mandatory multi-factor authentication (MFA) across all vendor accounts.</li>
-                </ul>`
-            },
-            {
-                id: 3,
-                title: "Database Breach Exposes 4.2 Million User Credentials",
-                category: "Data Breach",
-                date: "2026-09-18",
-                author: "Breach Monitor",
-                summary: "An unsecured Elasticsearch cluster leaked hashed passwords, email addresses, and API key tokens for millions of accounts.",
-                content: `<p class="mb-4">Over 4 million account records were discovered exposed on an unauthenticated database index. While password hashes utilized bcrypt with adequate work factors, plain-text API credentials were found in audit log entries.</p>
-                <p class="mb-4">Impacted users should immediately rotate active API tokens and audit recent account activity logs for suspicious authorizations.</p>`
-            },
-            {
-                id: 4,
-                title: "New AI-Driven Phishing Framework Bypasses Legacy Email Filters",
-                category: "Malware",
-                date: "2026-09-15",
-                author: "SecOps Security",
-                summary: "Automated LLM-driven phishing campaigns are crafting personalized context aware emails at unprecedented scale.",
-                content: `<p class="mb-4">Security analysts have uncovered an automated phishing kit capable of synthesizing contextually accurate corporate emails using public social media metadata.</p>
-                <p class="mb-4">Organizations are urged to transition from traditional domain reputation filtering toward behavior-based threat analysis and security key (FIDO2) authentication.</p>`
-            },
-            {
-                id: 5,
-                title: "NIST Releases Updated Guidelines for Quantum-Resistant Encryption",
-                category: "Policy",
-                date: "2026-09-10",
-                author: "Crypto Analysis",
-                summary: "New standards aim to prepare governmental and private infrastructure for post-quantum cryptographic security requirements.",
-                content: `<p class="mb-4">The National Institute of Standards and Technology (NIST) has finalized its standardized post-quantum cryptographic algorithms, emphasizing lattice-based encryption algorithms for future transport layer security.</p>`
-            }
-        ];
-
-        /* State management */
-        let currentGenMode = 'random'; // 'random' or 'readable'
+        let liveArticles = [];
+        let currentGenMode = 'random';
+        const RSS_ENDPOINT = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.feedburner.com%2FTheHackersNews';
+        const HN_FALLBACK_ENDPOINT = 'https://hn.algolia.com/api/v1/search_by_date?query=cybersecurity&tags=story&hitsPerPage=12';
 
         document.addEventListener('DOMContentLoaded', () => {
-            renderNewsArticles(newsArticles);
+            fetchLiveNews();
             generatePassword();
             setupEventListeners();
         });
 
-        /* Tab Switcher Logic */
-        function switchTab(tabId) {
-            // Hide all tab content
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            
-            // Show target section
-            const targetSection = document.getElementById(`section-${tabId}`);
-            if(targetSection) targetSection.classList.remove('hidden');
+        async function fetchLiveNews() {
+            const grid = document.getElementById('articles-grid');
+            grid.innerHTML = `
+                <div class="col-span-full text-center py-12 text-cyber-accent font-mono animate-pulse">
+                    <i class="fa-solid fa-satellite-dish text-3xl mb-3 animate-spin"></i>
+                    <p>CONNECTING TO LIVE THREAT FEED REPOSITORIES...</p>
+                </div>
+            `;
 
-            // Update Tab Nav Button Highlights
-            document.querySelectorAll('.nav-tab').forEach(btn => {
-                btn.classList.remove('bg-cyber-accent/10', 'text-cyber-accent', 'border-cyber-accent/40');
-                btn.classList.add('text-gray-300', 'border-transparent');
-            });
+            try {
+                const res = await fetch(RSS_ENDPOINT);
+                const data = await res.json();
 
-            const activeTabBtn = document.getElementById(`tab-btn-${tabId}`);
-            if(activeTabBtn) {
-                activeTabBtn.classList.add('bg-cyber-accent/10', 'text-cyber-accent', 'border-cyber-accent/40');
-                activeTabBtn.classList.remove('text-gray-300', 'border-transparent');
+                if (data.status === 'ok' && data.items && data.items.length > 0) {
+                    liveArticles = data.items.map((item, idx) => ({
+                        id: idx + 1,
+                        title: item.title,
+                        category: categorizeTitle(item.title, item.categories),
+                        date: formatDate(item.pubDate),
+                        author: item.author || 'The Hacker News',
+                        summary: stripHtml(item.description || item.content),
+                        link: item.link
+                    }));
+                } else {
+                    throw new Error('Primary RSS response invalid');
+                }
+            } catch (err) {
+                console.warn('Primary feed failed, attempting secondary API fallback...', err);
+                await fetchFallbackNews();
             }
 
-            // Close Mobile Nav Menu if open
-            document.getElementById('mobile-menu').classList.add('hidden');
+            renderNewsArticles(liveArticles);
+        }
+
+        async function fetchFallbackNews() {
+            try {
+                const res = await fetch(HN_FALLBACK_ENDPOINT);
+                const data = await res.json();
+                liveArticles = data.hits.map((hit, idx) => ({
+                    id: idx + 1,
+                    title: hit.title,
+                    category: categorizeTitle(hit.title, []),
+                    date: formatDate(hit.created_at),
+                    author: hit.author || 'Hacker News',
+                    summary: hit.story_text ? stripHtml(hit.story_text) : 'Live cybersecurity report from news aggregator.',
+                    link: hit.url || `https://news.ycombinator.com/item?id=${hit.objectID}`
+                }));
+            } catch (fallbackErr) {
+                console.error('All feeds failed', fallbackErr);
+                liveArticles = [];
+            }
+        }
+
+        function stripHtml(htmlStr) {
+            const temp = document.createElement('div');
+            temp.innerHTML = htmlStr || '';
+            const text = temp.textContent || temp.innerText || '';
+            return text.length > 160 ? text.substring(0, 160).trim() + '...' : text;
+        }
+
+        function categorizeTitle(title, tags = []) {
+            const t = title.toLowerCase();
+            if (t.includes('vulnerab') || t.includes('cve') || t.includes('zero-day') || t.includes('flaw')) return 'Vulnerability';
+            if (t.includes('ransomware') || t.includes('extortion')) return 'Ransomware';
+            if (t.includes('breach') || t.includes('leak') || t.includes('exposed')) return 'Data Breach';
+            if (t.includes('malware') || t.includes('trojan') || t.includes('botnet') || t.includes('phish')) return 'Malware';
+            return 'Threat Intel';
+        }
+
+        function formatDate(dStr) {
+            if (!dStr) return 'Recently';
+            const d = new Date(dStr);
+            return isNaN(d.getTime()) ? 'Recently' : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
 
         function renderNewsArticles(articles) {
@@ -589,7 +543,7 @@
                 grid.innerHTML = `
                     <div class="col-span-full text-center py-12 text-gray-500">
                         <i class="fa-solid fa-magnifying-glass text-3xl mb-2"></i>
-                        <p>No cybersecurity news articles matched your query.</p>
+                        <p>No cybersecurity news articles matched your search.</p>
                     </div>
                 `;
                 return;
@@ -615,10 +569,10 @@
                         </div>
                         <div class="pt-4 border-t border-cyber-border flex justify-between items-center">
                             <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-user-pen mr-1"></i>${article.author}</span>
-                            <button onclick="openNewsModal(${article.id})" class="text-xs font-semibold text-cyber-accent hover:underline flex items-center space-x-1">
-                                <span>Read Full Intel</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
+                            <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-cyber-accent hover:underline flex items-center space-x-1">
+                                <span>Read Full Article</span>
+                                <i class="fa-solid fa-external-link-alt text-[10px]"></i>
+                            </a>
                         </div>
                     </div>
                 `;
@@ -637,7 +591,7 @@
         }
 
         function openNewsModal(id) {
-            const article = newsArticles.find(a => a.id === id);
+            const article = liveArticles.find(a => a.id === id);
             if (!article) return;
 
             const modalContent = document.getElementById('modal-content');
@@ -652,14 +606,18 @@
                 </div>
                 <h2 class="text-2xl font-bold text-white mb-4">${article.title}</h2>
                 <div class="text-xs text-gray-400 mb-6 pb-4 border-b border-cyber-border font-mono">
-                    Author: ${article.author} | Classification: Public Threat Advisory
+                    Source: ${article.author} | Classification: Public Threat Advisory
                 </div>
-                <div class="text-gray-300 text-sm leading-relaxed space-y-3">
-                    ${article.content}
-                </div>
-                <div class="mt-8 pt-4 border-t border-cyber-border flex justify-end">
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                    ${article.summary}
+                </p>
+                <div class="pt-4 border-t border-cyber-border flex justify-between items-center">
+                    <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-cyber-accent text-black font-semibold text-sm rounded-lg hover:bg-cyan-300 transition flex items-center gap-2">
+                        <span>Read Full Source Article</span>
+                        <i class="fa-solid fa-external-link-alt"></i>
+                    </a>
                     <button onclick="closeNewsModal()" class="px-4 py-2 bg-cyber-border text-white text-sm font-semibold rounded-lg hover:bg-gray-700">
-                        Close Article
+                        Close
                     </button>
                 </div>
             `;
@@ -671,15 +629,30 @@
             document.getElementById('news-modal').classList.add('hidden');
         }
 
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            const targetSection = document.getElementById(`section-${tabId}`);
+            if(targetSection) targetSection.classList.remove('hidden');
+
+            document.querySelectorAll('.nav-tab').forEach(btn => {
+                btn.classList.remove('bg-cyber-accent/10', 'text-cyber-accent', 'border-cyber-accent/40');
+                btn.classList.add('text-gray-300', 'border-transparent');
+            });
+
+            const activeTabBtn = document.getElementById(`tab-btn-${tabId}`);
+            if(activeTabBtn) {
+                activeTabBtn.classList.add('bg-cyber-accent/10', 'text-cyber-accent', 'border-cyber-accent/40');
+                activeTabBtn.classList.remove('text-gray-300', 'border-transparent');
+            }
+
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
         function setupEventListeners() {
-            // Search filter for news
             document.getElementById('news-search').addEventListener('input', filterNews);
             document.getElementById('news-filter').addEventListener('change', filterNews);
-
-            // Scanner Form
             document.getElementById('scanner-form').addEventListener('submit', handleScanSubmit);
 
-            // Password Generator Controls
             const passLengthSlider = document.getElementById('pass-length');
             passLengthSlider.addEventListener('input', (e) => {
                 document.getElementById('length-display').textContent = e.target.value;
@@ -690,7 +663,6 @@
                 document.getElementById(id).addEventListener('change', generatePassword);
             });
 
-            // Mobile menu toggle
             document.getElementById('mobile-menu-btn').addEventListener('click', () => {
                 document.getElementById('mobile-menu').classList.toggle('hidden');
             });
@@ -700,7 +672,7 @@
             const query = document.getElementById('news-search').value.toLowerCase();
             const category = document.getElementById('news-filter').value;
 
-            const filtered = newsArticles.filter(article => {
+            const filtered = liveArticles.filter(article => {
                 const matchesQuery = article.title.toLowerCase().includes(query) || article.summary.toLowerCase().includes(query);
                 const matchesCategory = category === 'ALL' || article.category === category;
                 return matchesQuery && matchesCategory;
@@ -753,9 +725,8 @@
             document.getElementById('report-target-name').textContent = target;
             document.getElementById('report-timestamp').textContent = `Scan Executed: ${new Date().toLocaleString()}`;
 
-            // Generate deterministic result based on input length/hash
             const hash = target.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-            const severityLevel = hash % 4; // 0: Safe, 1: Low/Medium, 2: High, 3: Critical
+            const severityLevel = hash % 4;
 
             const badge = document.getElementById('report-severity-badge');
             const headerBox = document.getElementById('report-header-box');
@@ -788,8 +759,8 @@
                     color: 'bg-yellow-950/80 text-cyber-yellow border-cyber-yellow/50',
                     boxBorder: 'border-cyber-yellow/30',
                     findings: [
-                        { icon: 'fa-triangle-exclamation text-cyber-yellow', title: 'Historical Breach Record', desc: 'Found in 1 archived third-party database breach from 2022.' },
-                        { icon: 'fa-circle-exclamation text-cyber-yellow', title: 'Legacy Password Hash exposed', desc: 'Old MD5/SHA1 encrypted credentials present in raw dumps.' }
+                        { icon: 'fa-triangle-exclamation text-cyber-yellow', title: 'Historical Breach Record', desc: 'Found in 1 archived third-party database breach.' },
+                        { icon: 'fa-circle-exclamation text-cyber-yellow', title: 'Legacy Password Hash Exposed', desc: 'Old MD5/SHA1 encrypted credentials present in raw dumps.' }
                     ],
                     recs: [
                         'Immediately update passwords on services associated with this account.',
@@ -883,7 +854,6 @@
             let password = '';
 
             if (currentGenMode === 'readable') {
-                // Generate memorable word-based password
                 const words = ["Cyber", "Matrix", "Shield", "Cipher", "Vector", "Quantum", "Nexus", "Vortex", "Sentry", "Aegis", "Beacon", "Krypton"];
                 const syms = ["!", "@", "#", "$", "%", "&", "*"];
                 
@@ -895,7 +865,6 @@
                 }
                 password = password.slice(0, length);
             } else {
-                // Cryptographic Random Mode
                 const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 const lower = "abcdefghijklmnopqrstuvwxyz";
                 const num = "0123456789";
@@ -912,7 +881,6 @@
                     return;
                 }
 
-                // Web Crypto API for true entropy
                 const array = new Uint32Array(length);
                 window.crypto.getRandomValues(array);
 
@@ -934,7 +902,6 @@
 
             if (poolSize === 0) poolSize = 1;
 
-            // Calculate entropy bits
             const entropy = Math.floor(password.length * Math.log2(poolSize));
             const entropyScoreEl = document.getElementById('entropy-score');
             const timeEstEl = document.getElementById('strength-time-estimate');
@@ -966,7 +933,6 @@
             }
         }
 
-        /* Copy Password Clipboard */
         function copyPassword() {
             const passInput = document.getElementById('pass-output');
             if(!passInput.value || passInput.value.startsWith("SELECT")) return;
@@ -983,7 +949,6 @@
             }, 2000);
         }
 
-        /* Toast Popup Helper */
         function showToast(message) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-message').textContent = message;
